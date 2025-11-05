@@ -1,4 +1,3 @@
-import java.io.*;
 public class DPKnapsack {
     static int n, m, p[], w[];
 
@@ -38,23 +37,23 @@ public class DPKnapsack {
         return (a > b ? a : b);
     }
 
-    public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new FileReader("input.txt"));
-        n = Integer.parseInt(br.readLine().trim());
-        w = new int[n + 1];
-        p = new int[n + 1];
+    public static void main(String[] args) {
+        // Static input
+        n = 4;
+        w = new int[] {0, 2, 3, 4, 5}; // index 0 unused
+        p = new int[] {0, 3, 4, 5, 6}; // index 0 unused
+        m = 5;
 
-        String[] weightLine = br.readLine().trim().split("\\s+");
-        for (int i = 1; i <= n; i++)
-            w[i] = Integer.parseInt(weightLine[i - 1]);
+        System.out.println("Number of products: " + n);
+        System.out.print("Weights: ");
+        for (int i = 1; i <= n; i++) System.out.print(w[i] + " ");
+        System.out.println();
 
-        String[] profitLine = br.readLine().trim().split("\\s+");
-        for (int i = 1; i <= n; i++)
-            p[i] = Integer.parseInt(profitLine[i - 1]);
+        System.out.print("Profits: ");
+        for (int i = 1; i <= n; i++) System.out.print(p[i] + " ");
+        System.out.println();
 
-        m = Integer.parseInt(br.readLine().trim());
-        br.close();
-
+        System.out.println("Knapsack capacity: " + m);
         knapsackDP();
     }
 }
